@@ -1,0 +1,447 @@
+@font-face {
+	font-family: myFantasyBold;
+	src: url(Fonts/Lobster-Regular.ttf);
+	font-weight: bolder;
+}
+
+@font-face {
+	font-family: myFantasy;
+	src: url(Fonts/Caveat-Medium.ttf);
+}
+
+.downloads_info {
+	text-align: left;
+	font-size: 1.5vmax;
+	line-height: 2;
+
+}
+
+.mainUl {
+	font-size: 1.6vmax;
+
+}
+
+.testInfo {
+	font-size: 1.6vmax;
+}
+
+body {
+	margin: 0;
+	font-family: Arial;
+	font-size: 15px;
+	line-height: 1.4;
+}
+
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+.background {
+	display: block;
+	flex-direction: column;
+	align-content: center;
+	width: 100%;
+	height: fit-content;
+	min-height: 100vh;
+	padding-bottom: 35vmax;
+
+	background: url("Images/background.jpg") center no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+}
+
+.language {
+	position: absolute;
+
+	z-index: 1;
+	text-decoration: none;
+
+}
+
+.sign_up_nav {
+	position: relative;
+	float: right;
+	flex-direction: column;
+	max-width: 13vw;
+	
+}
+
+.sign_up {
+	z-index: 1;
+	text-decoration: none;
+	font-size: 1vmax;
+	color: #422500;
+	background-color: #ff7c29;
+	border-radius: 1.3vmin;
+	border: solid;
+	border-width: 0.23vw;
+	transition: color .2s linear;
+	padding: 1.1vmin;
+	text-align: center;
+	display: block;
+	margin: 1vw;
+	
+}
+
+.lala {
+	margin-top: 1vmin;
+	font-size: 1vmax;
+}
+
+.profile_button_nav {
+	align-content: space-around;
+	flex-direction: row;
+	margin-top: auto;
+	margin-bottom: auto;
+	max-width: 13vw;
+	word-wrap: break-word;
+	
+}
+
+.avatar {
+	border-radius: 3vw;
+	width: 3vw;
+	height: 3vw;
+	margin-top: auto;
+	margin-bottom: auto;
+	align-content: flex-start;
+	transition: color .2s linear;
+}
+
+.header {
+	display: block;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+
+	
+	margin: 0 auto;
+	background-image: url("Images/oldPaper.jpg");
+}
+
+.nav_div {
+	width: 70%;
+	height: 100%;
+	max-width: 2000px;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+}
+
+.nav {
+	font-size: 1.7vw;
+	font-weight: bolder;
+	height: 100%;
+	padding-bottom: 5px;
+	margin: 0;
+}
+
+.nav__link {
+	text-decoration: none;
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 20px;
+	position: relative;
+	color: #422500;
+
+	transition: color .2s linear;
+}
+
+.nav_bottom {
+	width: 100%;
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+
+
+	margin-bottom: 10px;
+
+	z-index: 1;
+}
+
+.Brotherhood_div {
+	width: 100%;
+	height: 100%;
+
+	margin-bottom: 2vw;
+}
+
+
+.Brotherhood {
+	transition: .2s;
+
+	width: 50vw;
+	height: auto;
+
+	max-width: 100%;
+}
+
+.mainInfo {
+	display: flex;
+	
+	width: 100%;
+	margin: 10vmin 0px;
+	justify-content: space-around;
+
+}
+
+.thinBoard {
+	width: 100%;
+	height: 3vw;
+	align-content: flex-start;
+	position: absolute;
+	margin-top: 1vw;
+
+	background-image: url("Images/thinBoard.png");
+}
+
+.mainInfo_1 {
+	height: 100%;
+	max-width: 25vw;
+	padding: 10px;
+	border-radius: 20px;
+
+	z-index: 1;
+
+
+	background: url("Images/board.png") center;
+}
+
+.mainInfoText {
+	text-align: center;
+	font-family: myFantasyBold;
+	font-weight: 100;
+	font-size: 2.5vw;
+	color: #422500;
+}
+
+.mainInfoText_2 {
+	margin-top: 20px;
+	font-family: myFantasy;
+	font-size: 1.7vw;
+	color: #111;
+}
+
+.time_info {
+	max-width: 40vw;
+	text-align: center;
+	padding: 10px 0px;
+	margin: 8vh auto;
+	font-size: 3vmax;
+	font-family: myFantasyBold;
+	color: #422500;
+}
+
+.number_time {
+	font-size: 5vmax;
+}
+
+.mainBody {
+	width: 70%;
+	height: fit-content;
+	min-height: 200px;
+	margin: auto;
+	flex-direction: column;
+
+	padding-bottom: 100px;
+}
+
+.paper_div {
+	background-image: url("Images/paper.jpg");
+	background-repeat: repeat-y;
+	background-size: cover;
+	opacity: 0.6;
+	width: 70%;
+
+	position: absolute;
+	
+	z-index: 0;
+}
+
+.testDiv {
+	width: 100%;
+	max-width: 100%;
+	
+	padding: 10px;
+
+	position: relative;
+
+	z-index: 100;
+
+}
+
+.nav_button_none {
+	background-color: rgba(0, 0, 0, 0);
+	border-radius: 10px;
+	font-size: 2vmax;
+}
+
+.nav_button_active {
+	background-color: #ff7c29;
+	border-radius: 10px;
+	font-size: 2vmax;
+}
+
+.center_list {
+	text-align: center;
+	font-size: 2vmax;
+}
+
+.a_ref {
+	
+}
+
+.sign_up_form {
+	text-align: center;
+	padding-top: 5vmax;
+	padding-bottom: 4vmax;
+}
+
+.sign_up_input {
+	font-size: 2vmax;
+	margin: 1vmax 0px;
+	border-radius: 5px;
+	background-color: #ff9654;
+}
+
+.sign_up_button {
+	margin-top: 3vmax;
+	font-size: 1.4vmax;
+	border-radius: 1.3vmin;
+	border-width: 0.25vmin;
+	padding: 1.5vmin;
+	background-color: #ff7c29;
+	transition: color .2s linear;
+}
+
+.error_message {
+	color: red;
+	font-size: 2vmax;
+	text-align: center;
+}
+
+.successful_message {
+	color: green;
+	font-size: 2vmax;
+	text-align: center;
+}
+
+.profile_title {
+	color: #422500;
+	font-size: 2vmax;
+	text-align: center;
+}
+
+.profile_text {
+	
+	font-size: 2vw;
+	margin-top: 2vmax;
+	margin-bottom: 4.2vmax;
+}
+
+.label_profile {
+
+}
+
+.nav_div_profile {
+	z-index: 100;
+	height: 100%;
+	width: 70%;
+	
+	text-align: right;
+	display: flex;
+	padding: 10px;
+	margin: 4vmax auto;
+	color: #222222;
+}
+
+.text_div_profile {
+	text-align: left;
+	line-height: 1.2;
+	width: 50%;
+
+}
+
+.input_div_profile {
+	width: 50%;
+	width: fit-content;
+	
+}
+
+.user_info_input {
+	font-size: 1.8vw;
+	margin: 2vmax 0px;
+	border-radius: 5px;
+	background-color: #ff9654;
+}
+
+.save_button {
+	margin-top: 6vmax;
+	margin-right: 18vmax;
+	font-size: 1.4vmax;
+	border-radius: 1.3vmin;
+	border-width: 0.23vw;
+	padding: 1.5vmin;
+	background-color: #ff7c29;
+	transition: color .2s linear;
+}
+/*
+--------------------------hovers----------------------------
+*/
+.nav__link:hover {
+	color: #ff7c29;
+}
+.nav__link.active {
+	color: #ff7c29;
+}
+
+.sign_up:hover {
+	color: #997c29;
+
+}
+
+.sign_up_button:hover,
+.save_button:hover {
+	color: #997c29;
+}
+
+.Brotherhood:hover {
+	-webkit-filter: brightness(1.2);
+
+}
+
+.avatar:hover {
+	-webkit-filter: brightness(1.4);
+}
+
+.nav__link:hover:after,
+.nav__link.active:after {
+    opacity: 1;
+}
+
+
+
+.nav__link:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 5px;
+
+    background-color: #ff7c29;
+    opacity: 0;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+
+    transition: opacity .2s linear;
+}

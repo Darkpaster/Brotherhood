@@ -1,0 +1,102 @@
+<!doctype html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<link rel="stylesheet" href="../style.css">
+			<title>
+				Братство
+			</title>
+		</head>
+
+		<body>
+				
+
+			<div class="background">
+
+				<header class="header">
+
+					<a class="language" href="../Dshod/Providers.php">Дшодшейский</a>
+
+					<div class="sign_up_nav">
+						<?php
+							if ($_COOKIE['sessionok'] != '') {
+							?>
+										<a class="sign_up" href="../disable.php">Выйти</a>
+
+									
+										<a class="sign_up" href="Profile.php">
+											<div class="profile_button_nav">
+										  <img class="avatar" src="../Avatar/empty.jpg" >
+										  <h3 class="lala"> <?php 
+										  	if ($_COOKIE['nickname'] == '') {
+										  	echo $_COOKIE['sessionok']; 
+										  } else {
+										  	echo $_COOKIE['nickname'];
+										  }
+										  ?> </h3> </div>
+										   </a>
+									
+									
+							<?php
+							} else {
+							?>
+								<a class="sign_up" href="../save_user.php">Регистрация</a>
+								<a class="sign_up" href="../testreg.php">Войти</a>
+								<?php
+							}
+						?>
+					
+					</div>
+
+					<div class="nav_div">
+							<div class="Brotherhood_div">
+								<a href="../index.php">
+									
+									<img class="Brotherhood" src="../Images/BrotherhoodLogo.png" onmouseover="this.src='../Images/BrotherhoodLogo_2.png';" onmouseout="this.src='../Images/BrotherhoodLogo.png';" alt="Братство">
+
+								</a>
+							</div>
+							
+							<div class="nav">
+								<a class="nav__link" href="../index.php">Главная</a>
+							<a class="nav__link" href="Downloads.php">Скачать</a>
+							<a class="nav__link" href="#Test2">Пусто</a>
+							<a class="nav__link" href="#Test3">Пусто</a>
+							<a class="nav__link active" href="Providers.php">Предложения</a>
+							</div>
+					</div>
+				</header>
+
+				<div class="mainInfo">
+
+				</div>
+
+				<div class="mainBody" id="id_mainBody">
+
+					<div class="paper_div" id="id_paper_div"></div>
+					
+
+					<div class="testDiv">
+						
+						<h2 class="testInfo">
+							<hr>
+						Тут пока ничего нет. Я подумывал сделать страницу, где вы сможете писать свои идеи и предложения по изменению сайта, и/или по каким-то другим вопросам, связанным с этим сайтом. Но во-первых мне лень, во-вторых лень, а в-третьих вы можете это сделать и через вк/дискорд, так что не буду пока запариваться. А так мб сделаю потом. <br>
+						Изначально я хотел сделать сайт сам хотя бы на половину, а уже потом показывать его вам, но немного поработав над началом я понял, что в одиночку это будет очень долго и муторно. А так как сайт всё-таки наш общий и в основном рассчитан на нас троих, я решил, что будет лучше, если дальше мы будем заполнять его вместе. Таким образом 2 зайца одним выстрелом - и нагрузку распределю, и смогу угодить нам всем.
+						Вообще я бы и сам справился, если бы знал что добавлять сюда, а так... С идеями у меня огромный кризис в общем, с чем в основном мне и нужна ваша помощь (Т.е с кодом я сам справлюсь, а остальное обсудим). Не буду врать, что и навыков мне пока не хватает для реализации всех моих идей. Многие вещи, обыденные на других сайтах, я до сих пор не знаю как сделать(. Но это вопрос времени, так что похер. <br>
+						Вообще не знаю зачем так много расписываю тут, опять меня занесло... <br>
+						P.S На фоне отсылка к одному из стартовых квестов в Нордсколе (Если кто не понял).
+
+					</h2>
+					</div>
+					
+
+					
+					
+
+				</div>
+					
+			</div>
+
+			<script src="../script.js"></script>
+		</body>
+	</html>

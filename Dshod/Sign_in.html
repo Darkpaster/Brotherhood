@@ -1,0 +1,99 @@
+<!doctype html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<link rel="stylesheet" href="../style.css">
+			<title>
+				Братство)
+			</title>
+		</head>
+
+		<body>
+				
+
+			<div class="background">
+
+				<header class="header">
+
+					<a class="language" href="testreg.php">Русский</a>
+
+					<div class="sign_up_nav">
+						<?php
+							if ($_COOKIE['sessionok'] != '') {
+							?>
+										<a class="sign_up" href="../disable2.php">выхад</a>
+
+									
+										<a class="sign_up" href="Profile.php">
+											<div class="profile_button_nav">
+										  <img class="avatar" src="../Avatar/empty.jpg" >
+										  <h3 class="lala"> <?php echo $_COOKIE['sessionok']; ?> </h3> </div>
+										   </a>
+									
+									
+							<?php
+							} else {
+							?>
+								<a class="sign_up" href="../save_user2.php">ригистрация</a>
+								<a class="sign_up" href="../testreg2.php">вайти</a>
+								<?php
+							}
+						?>
+					
+					</div>
+
+					<div class="nav_div">
+							<div class="Brotherhood_div">
+								<a href="index2.php">
+									
+									<img class="Brotherhood" src="../Images/BrotherhoodLogo.png" onmouseover="this.src='../Images/BrotherhoodLogo_2Dshod.png';" onmouseout="this.src='../Images/BrotherhoodLogo.png';" alt="Братство">
+
+								</a>
+							</div>
+							
+							<div class="nav">
+								<a class="nav__link" href="../index2.php">главная)</a>
+							<a class="nav__link" href="Dshod/Downloads.php">скачятт</a>
+							<a class="nav__link" href="#Test2">каво</a>
+							<a class="nav__link" href="#Test3">каво</a>
+							<a class="nav__link" href="Dshod/Providers.php">чокаво м)</a>
+							</div>
+					</div>
+				</header>
+
+				<div class="mainInfo">
+
+				</div>
+
+				<div class="mainBody" id="id_mainBody">
+
+					<div class="paper_div" id="id_paper_div"></div>
+					
+
+					<div class="testDiv">
+						
+						<h2 class="testInfo">
+							<hr>
+								<form action="../testreg2.php" method="post" class="sign_up_form">
+							  <label for="fname">логин:</label><br>
+							  <input class="sign_up_input" type="text" id="id_login" name="login" value="a?" maxlength="20"><br>
+
+							  <label for="lname">пароль:</label><br>
+							  <input class="sign_up_input" type="password" id="id_password" name="password" value="" maxlength="10"> <br>
+
+							  <input class="sign_up_button" type="submit" value="вайти">
+
+							  <p class="error_message"> <?php echo $message_error; ?> </p>
+
+							</form>
+
+					</h2>
+					</div>
+
+				</div>
+					
+			</div>
+
+			<script src="../script.js"></script>
+		</body>
+	</html>

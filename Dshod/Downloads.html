@@ -1,0 +1,134 @@
+<!doctype html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<link rel="stylesheet" href="../style.css">
+			<title>
+				Братство)
+			</title>
+		</head>
+
+		<body>
+				
+
+			<div class="background">
+
+				<header class="header">
+
+					<a class="language" href="../Ru/Downloads.php">Русский</a>
+
+					<div class="sign_up_nav">
+						<?php
+							if ($_COOKIE['sessionok'] != '') {
+							?>
+										<a class="sign_up" href="../disable2.php">выхад</a>
+
+									
+										<a class="sign_up" href="Profile.php">
+											<div class="profile_button_nav">
+										  <img class="avatar" src="../Avatar/empty.jpg" >
+										  <h3 class="lala"> <?php 
+										  	if ($_COOKIE['nickname'] == '') {
+										  	echo $_COOKIE['sessionok']; 
+										  } else {
+										  	echo $_COOKIE['nickname'];
+										  }
+										  ?> </h3> </div>
+										   </a>
+									
+									
+							<?php
+							} else {
+							?>
+								<a class="sign_up" href="../save_user2.php">ригистрация</a>
+								<a class="sign_up" href="../testreg2.php">вайти</a>
+								<?php
+							}
+						?>
+					
+					</div>
+
+
+					<div class="nav_div">
+							<div class="Brotherhood_div">
+								<a href="../index2.php">
+									
+									<img class="Brotherhood" src="../Images/BrotherhoodLogo.png" onmouseover="this.src='../Images/BrotherhoodLogo_2Dshod.png';" onmouseout="this.src='../Images/BrotherhoodLogo.png';" alt="Братство">
+
+								</a>
+							</div>
+							
+							<div class="nav">
+								<a class="nav__link" href="../index2.php">главная)</a>
+							<a class="nav__link active" href="Downloads.php">скачятт</a>
+							<a class="nav__link" href="#Test2">каво</a>
+							<a class="nav__link" href="#Test3">каво</a>
+							<a class="nav__link" href="Providers.php">чокаво м)</a>
+							</div>
+					</div>
+				</header>
+
+				<div class="mainInfo">
+
+				</div>
+
+				<div class="mainBody" id="id_mainBody">
+
+					<div class="paper_div" id="id_paper_div"></div>
+
+					<div class="testDiv">
+
+						<div class="nav_bottom">
+							<button class="nav_button_none" id="button_1">1990 - 2000</button>
+							<button class="nav_button_none" id="button_2">2000 - 2010</button>
+							<button class="nav_button_none" id="button_3">2010 - 2021</button>
+
+						</div>
+						<hr>
+
+						<h2 class="downloads_info">все ссылки я есле чо праверяю так што качяйте не баясь</h2> <br>
+
+						<h2 class="downloads_info" id="id1990_2000">
+							
+							
+							
+					</h2>
+
+					<h2 class="downloads_info" id="id2000_2010">
+							
+							
+
+							<p class="center_list">2001:</p>
+							Торрент: <a href="../Morrowind.torrent" download="" title="The Elder Scrolls 3: Morrowind" class="a_ref">TES 3: Morrowind v 1.6.1820 + все DLS (Русский)</a>
+							
+								<p class="center_list">2002:</p>
+								Торрент: <a href="https://byrut.org/index.php?do=download&id=38853" download="" title="Warcraft 3: The Frozen Throne" class="a_ref">Warcraft 3: The Frozen Throne 1.26a (Ирина Бот)</a> <br>
+
+								Торрент: <a href="https://igrovaya.org/index.php?do=download&amp;id=27098" download="" title="Gothic 1" class="a_ref">Gothic 1 v1.08k</a>
+
+					</h2>
+
+					<h2 class="downloads_info" id="id2010_2021">
+							
+							
+
+							<p class="center_list">2010:</p>
+							Exe: <a href="https://dw.uptodown.com/dwn/dSiT16Aqbv0rIXXLIpSvdnzbR-7j7aaJtk2NnhnU459sYBaQA-g0P4_cxEVGlqGz-JwIwzjgqIceG8aoxWYCaE8NctBn99_xgbQJouxT8FMkcPGloAstmGAn6X7pfrDK/vq6yBnzTxNQ-P0nSDtPnucTLDl6RDucRc--nT0rkXTEMUnzHIUCsq_yk60Fc8L0O2yiu5u8lBJ8av9-1R3tCm_taxSmrDYVwtLI_hRlxSCYvkukyoE2HNAwCpxxe-SHz/ofrcHjFlqLXfT_SWOVsHdjGC3k5VobPASmxryETKVcFtFlzt7guj2tX08IKlwn-B5gpnloqlQvx-_mIEsxnnrw==/" class="a_ref">GameRanger</a> <br>
+
+							<p class="center_list">2017:</p>
+							Торрент: <a href="https://s5.torrent-repack.club/index.php?do=download&id=9314" download="" title="Darkest Dungeon" class="a_ref">Darkest Dungeon v25622 + все DLS + The Butcher's Circus (Русский)</a> <br>
+
+							<p class="center_list">2019:</p>
+							Торрент: <a href="../adobe-photoshop-cc-2019-20_0_4_26077.torrent" download="" title="Adobe Photoshop CC 2019" class="a_ref">Adobe Photoshop CC v20.0.4.26077 (Русский)</a>
+							
+					</h2>
+					</div>
+					
+
+				</div>
+					
+			</div>
+
+			<script src="../nav.js"></script>
+		</body>
+	</html>

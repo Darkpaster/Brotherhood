@@ -1,0 +1,144 @@
+<!doctype html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<link rel="stylesheet" href="../style.css">
+			<title>
+				Братство
+			</title>
+		</head>
+
+		<body>
+				
+
+			<div class="background">
+
+				<header class="header">
+
+					<a class="language" href="../Dshod/Profile.php">Дшодшейский</a>
+
+					<div class="sign_up_nav">
+						<?php
+							if ($_COOKIE['sessionok'] != '') {
+							?>
+										<a class="sign_up" href="../disable.php">Выйти</a>
+
+									
+										<a class="sign_up" href="Profile.php">
+											<div class="profile_button_nav">
+										  <img class="avatar" src="../Avatar/empty.jpg" >
+										  <h3 class="lala"> <?php 
+										  	if ($_COOKIE['nickname'] == '') {
+										  	echo $_COOKIE['sessionok']; 
+										  } else {
+										  	echo $_COOKIE['nickname'];
+										  }
+										  ?> </h3> </div>
+										   </a>
+									
+									
+							<?php
+							} else {
+							?>
+								<a class="sign_up" href="../save_user.php">Регистрация</a>
+								<a class="sign_up" href="../testreg.php">Войти</a>
+								<?php
+							}
+						?>
+					
+					</div>
+
+					<div class="nav_div">
+							<div class="Brotherhood_div">
+								<a href="../index.php">
+									
+									<img class="Brotherhood" src="../Images/BrotherhoodLogo.png" onmouseover="this.src='../Images/BrotherhoodLogo_2.png';" onmouseout="this.src='../Images/BrotherhoodLogo.png';" alt="Братство">
+
+								</a>
+							</div>
+							
+							<div class="nav">
+								<a class="nav__link" href="../index.php">Главная</a>
+							<a class="nav__link" href="Downloads.php">Скачать</a>
+							<a class="nav__link" href="#Test2">Пусто</a>
+							<a class="nav__link" href="#Test3">Пусто</a>
+							<a class="nav__link" href="Providers.php">Предложения</a>
+							</div>
+					</div>
+				</header>
+
+				<div class="mainInfo">
+
+				</div>
+
+				<div class="mainBody" id="id_mainBody">
+
+					<div class="paper_div" id="id_paper_div"></div>
+					
+
+					<div class="testDiv">
+						<h1 class="profile_title">Профиль</h1>
+							<hr>
+						<div class="nav_div_profile">
+
+							<div class="text_div_profile">
+								<h2 class="profile_text">Никнейм: </h1> 
+								
+							  <h2 class="profile_text">Аватар: </h2>
+
+							  <h2 class="profile_text">Статус: </h2>
+
+							  <h2 class="profile_text">Логин: </h2>
+
+							  <h2 class="profile_text">Пароль: </h2>
+
+							</div>
+
+							<div class="input_div_profile">
+								<form action="Profile.php" method="post">
+								
+							  <input class="user_info_input" type="text" id="id_save_nickname" name="nickname" value="<?php 
+							  	
+							  		echo $_COOKIE['nickname'];
+							  	
+							   ?>" maxlength="20"> <br>
+							  <input class="user_info_input" type="button" id="id_avatar" name="avatar" value="В разработке" maxlength="20"><br>
+							  <input class="user_info_input" type="button" id="id_status" name="status" value="В разработке" maxlength="20"><br>
+							  <input class="user_info_input" type="text" id="id_login" name="login" value="<?php echo $_COOKIE['sessionok']; ?>" maxlength="20" readonly><br>
+							  <input class="user_info_input" type="text" id="id_password" name="password" value="<?php echo $_COOKIE['password']; ?>" maxlength="20"><br>
+
+							  <input class="save_button" type="submit" value="Сохранить"> 
+							</form>
+							
+							</div>
+
+						</div>
+						<br>
+							<?php
+							  	if ($test) {
+							  	?>
+							  		<h1 class="successful_message">
+							  		<?php echo $message_successful; ?></h1>
+							  		<?php
+							  	} else {
+							  	?> <h1 class="error_message"></h1>
+							  		 <h1 class="error_message">
+							  		 	<?php
+							   echo $message_error; ?></h1>
+							    <?php
+							  	}
+
+							?> 
+					</div>
+					
+
+					
+					
+
+				</div>
+					
+			</div>
+
+			<script src="../script.js"></script>
+		</body>
+	</html>
