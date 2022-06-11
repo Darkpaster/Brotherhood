@@ -19,7 +19,7 @@
 
 					<div class="sign_up_nav">
 						<?php
-							if ($_COOKIE['sessionok'] != '') {
+							if ($_SESSION['login'] != '') {
 							?>
 										<a class="sign_up" href="../disable.php">Выйти</a>
 
@@ -28,10 +28,10 @@
 											<div class="profile_button_nav">
 										  <img class="avatar" src="../Avatar/empty.jpg" >
 										  <h3 class="lala"> <?php 
-										  	if ($_COOKIE['nickname'] == '') {
-										  	echo $_COOKIE['sessionok']; 
+										  	if ($_SESSION['nickname'] == '') {
+										  	echo $_SESSION['login']; 
 										  } else {
-										  	echo $_COOKIE['nickname'];
+										  	echo $_SESSION['nickname'];
 										  }
 										  ?> </h3> </div>
 										   </a>

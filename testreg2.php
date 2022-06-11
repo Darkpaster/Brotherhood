@@ -1,13 +1,6 @@
 <?php
 session_start();
 
-if ($_COOKIE['sessionok'] == '') {
-    
-} else {
-    setcookie("sessionok", $_COOKIE['login'], time()+3600, '/');
-    header('Location: ../index2.php');
-}
-
 include('bd.php');
 
 $message_error;
@@ -32,11 +25,8 @@ if (empty($login) or empty($password)) {
         $test = false;
     $message_error = 'нада все паля заполнитт(';
 
-
     }
     } else {
-
-
 
  
 $result = mysqli_query($connection, "SELECT * FROM accounts WHERE login = '$login'");
@@ -53,14 +43,15 @@ $result = mysqli_query($connection, "SELECT * FROM accounts WHERE login = '$logi
     if ($myrow['password'] == $password) {
     
     
-    // $_SESSION['id'] = $myrow['id'];
-    // $_SESSION['password'] = $myrow['password'];
-    // $_SESSION['nickname'] = $myrow['nickname'];
+    $_SESSION['id'] = $myrow['id'];
+    $_SESSION['password'] = $myrow['password'];
+    $_SESSION['nickname'] = $myrow['nickname'];
+    $_SESSION['login'] = $myrow['login'];
    
-   setcookie("sessionok", $myrow['login'], time()+3600, "/");
-   setcookie("id", $myrow['id'], time()+3600, "/");
-   setcookie("nickname", $myrow['nickname'], time()+3600, "/");
-   setcookie("password", $myrow['password'], time()+3600, "/");
+   // setcookie("sessionok", $myrow['login'], time()+3600, "/");
+   // setcookie("id", $myrow['id'], time()+3600, "/");
+   // setcookie("nickname", $myrow['nickname'], time()+3600, "/");
+   // setcookie("password", $myrow['password'], time()+3600, "/");
 
     header('Location: index2.php');
     
@@ -74,5 +65,4 @@ $result = mysqli_query($connection, "SELECT * FROM accounts WHERE login = '$logi
     }
 
 include("Dshod/Sign_in.html");
-
 ?>

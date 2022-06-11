@@ -1,16 +1,12 @@
 <?php
 session_start();
 
-
-if ($_COOKIE['sessionok'] == '') {
-    header('Location: ../index2.php');
-} else {
-    
+if ($_SESSION['login'] == '') {
+    header('Location: ../index.php');
 }
 
 $test = false;
- $connection = mysqli_connect('localhost', 'id17956435_lightpaster', '@%mW-OoeI#idzv2X', 'id17956435_accounts');
-//$connection = mysqli_connect('localhost', 'root', '', 'accounts');
+include('../bd.php');
 
 if (isset($_POST['nickname'])) {
 $nickname = $_POST['nickname'];
@@ -28,19 +24,19 @@ if (empty($password)) {
     $password = trim($password);
     
 
-    $sql = " UPDATE accounts SET nickname = '$nickname', password = '$password' WHERE login = '$_COOKIE[sessionok]'";
+    $sql = " UPDATE accounts SET nickname = '$nickname', password = '$password' WHERE login = '$_SESSION[login]'";
 
-    $result2 = mysqli_query($connection, "SELECT * FROM accounts WHERE login = '$_COOKIE[sessionok]'");
+    $result2 = mysqli_query($connection, "SELECT * FROM accounts WHERE login = '$_SESSION[login]'");
 
     $info_array = mysqli_fetch_array($result2);
 
         $nickname = $info_array['nickname'];
         $password = $info_array['password'];
     if (mysqli_query($connection, $sql)) {
-        unset($_COOKIE['nickname']);
-        unset($_COOKIE['password']);
-        setcookie('nickname', $nickname, time()+3600, '/');
-        setcookie('password', $password, time()+3600, '/');
+        unset($_SESSION['nickname']);
+        unset($_SESSION['password']);
+        $_SESSION['password'] = $password;
+        $_SESSION['nickname'] = $nickname;
         $test = true;
         $message_successful = 'гатово)';
     } else {
@@ -51,17 +47,5 @@ if (empty($password)) {
 }
 }
 
-$result2 = mysqli_query($connection, "SELECT * FROM accounts WHERE login = '$_COOKIE[sessionok]'");
-
-$info_array = mysqli_fetch_array($result2);
-
-setcookie('nickname', $info_array['nickname'], time()+3600, '/');
-setcookie('password', $info_array['password'], time()+3600, '/');
-
-$_COOKIE['nickname'] = $info_array['nickname'];
-$_COOKIE['password'] = $info_array['password'];
-
-
 include("Profile.html");
-
 ?>

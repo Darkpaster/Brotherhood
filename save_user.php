@@ -1,13 +1,4 @@
 <?php
- 
-
-if ($_COOKIE['sessionok'] == '') {
-    
-} else {
-    setcookie("sessionok", $_COOKIE['login'], time()+3600, '/');
-    header('Location: ../index.php');
-}
-
 include('bd.php');
 
 if (isset($_POST['login'])) {
@@ -70,7 +61,6 @@ if (empty($login) or empty($password)) {
  
 
 include("Ru/Sign_up.html");
-
 // $resultt = mysqli_query($connection, "SELECT * FROM users WHERE login = '$login' AND password = '$password'");
 
 // if (mysqli_num_rows($resultt) == 0) {
