@@ -1,5 +1,9 @@
 <?php
-session_destroy();
+session_start();
+$_SESSION['nickname'] = '';
+$_SESSION['login'] = '';
+$_SESSION['password'] = '';
+
 
 // unset($_COOKIE['sessionok']);
 // unset($_COOKIE['password']);

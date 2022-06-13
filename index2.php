@@ -11,4 +11,8 @@ round($difference_seconds / 60 / 60 / 24);
 
 include("firstPage2.html");	
 
+if ($_SESSION['login'] != ''){
+	$_SESSION['check'] = false;
+include("chat.php"); 
+}
 ?>

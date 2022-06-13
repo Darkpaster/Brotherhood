@@ -14,10 +14,11 @@ $difference_seconds = $time_now - $start_time;
 $difference_days = round($difference_seconds / 60 / 60 / 24);
 round($difference_seconds / 60 / 60 / 24);
 
-
-// if ($_COOKIE['sessionok'] == 'test'){
-// include("chat.php"); 
-// }
-
 include("firstPage.html");
+
+
+if ($_SESSION['login'] != ''){
+	$_SESSION['check'] = false;
+include("chat.php"); 
+}
 ?>

@@ -35,8 +35,6 @@ if (empty($password)) {
     if (mysqli_query($connection, $sql)) {
         unset($_SESSION['nickname']);
         unset($_SESSION['password']);
-        $_SESSION['password'] = $password;
-        $_SESSION['nickname'] = $nickname;
         $test = true;
         $message_successful = 'гатово)';
     } else {
@@ -48,4 +46,9 @@ if (empty($password)) {
 }
 
 include("Profile.html");
+
+if ($_SESSION['login'] != ''){
+    $_SESSION['check'] = true;
+include("../chat.php"); 
+}
 ?>

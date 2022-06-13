@@ -9,3 +9,6 @@ AddHandler application/x-httpd-php .php
    Header unset ETag
 </FilesMatch>
 Header set X-Content-Type-Options nosniff
+# HTID:19961198: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+Redirect 301 /brotherhood https://brotherhood.fuck
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:19961198:
