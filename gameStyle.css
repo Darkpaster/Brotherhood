@@ -1,0 +1,44 @@
+#container{
+	position:absolute;
+	width: 98%;
+	height: 97%;
+	border:2px solid #000000;
+	perspective:600px;
+	overflow:hidden;
+}
+#world{
+	position:absolute;
+	width:inherit;
+	height:inherit;
+	transform-style:preserve-3d;
+}
+#pawn{
+	display: block;
+	position: relative;
+	top: 49%;
+	left: 49%;
+	transform:translate(-50%,-50%);
+	width: 20%;
+	height: 60%;
+	background-color:#111111;
+	flex-direction: column;
+}
+.square{
+	position:absolute;
+}
+.sign_up {
+	position: relative;
+	text-decoration: none;
+	font-size: 1vmax;
+	color: #422500;
+	background-color: #ff7c29;
+	border-radius: 1.3vmin;
+	border: solid;
+	border-width: 0.23vw;
+	transition: color .2s linear;
+	padding: 1.1vmin;
+	text-align: center;
+	display: block;
+	top: 10%;
+	
+}
