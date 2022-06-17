@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include("userCounter.php");
 
 if ($_SESSION['login'] == '') {
     header('Location: ../index.php');

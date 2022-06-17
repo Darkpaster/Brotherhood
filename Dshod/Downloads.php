@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../userCounter.php");
 include("Downloads.html");	
 
 if ($_SESSION['login'] != ''){

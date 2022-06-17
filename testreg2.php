@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+//include("userCounter.php");
 include('bd.php');
 
 $message_error;

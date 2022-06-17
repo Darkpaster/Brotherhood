@@ -3,7 +3,7 @@ session_start();
 $_SESSION['nickname'] = '';
 $_SESSION['login'] = '';
 $_SESSION['password'] = '';
-
+include("userCounter.php");
 
 // unset($_COOKIE['sessionok']);
 // unset($_COOKIE['password']);

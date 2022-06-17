@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+// print_r($_SESSION);
+include("userCounter.php");
 // ini_get_all();
 // $ini = ini_get_all();
 

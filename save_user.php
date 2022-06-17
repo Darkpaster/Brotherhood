@@ -1,4 +1,5 @@
 <?php
+include("userCounter.php");
 include('bd.php');
 
 if (isset($_POST['login'])) {

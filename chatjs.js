@@ -2,8 +2,7 @@
   // google.load("jquery", "1.3.2");
   // google.load("jqueryui", "1.7.2");
 
-
-    //Функция отправки сообщения
+    
   function send()
   {
     //Считываем сообщение из поля ввода с id mess_to_add
@@ -52,3 +51,4 @@
 
 load_messes();
 setInterval(load_messes, 1000);
+

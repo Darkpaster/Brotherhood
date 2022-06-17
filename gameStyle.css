@@ -1,7 +1,15 @@
+body{
+	margin:0px;
+	background-color: black;
+}
+
 #container{
 	position:absolute;
-	width: 98%;
-	height: 97%;
+	width: 1274px;
+	height: 663px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
 	border:2px solid #000000;
 	perspective:600px;
 	overflow:hidden;
@@ -18,8 +26,8 @@
 	top: 49%;
 	left: 49%;
 	transform:translate(-50%,-50%);
-	width: 20%;
-	height: 60%;
+	width: 300px;
+	height: 450px;
 	background-color:#111111;
 	flex-direction: column;
 }
@@ -27,18 +35,17 @@
 	position:absolute;
 }
 .sign_up {
-	position: relative;
 	text-decoration: none;
-	font-size: 1vmax;
+	font-size: 23px;
 	color: #422500;
 	background-color: #ff7c29;
-	border-radius: 1.3vmin;
+	border-radius: 10px;
 	border: solid;
 	border-width: 0.23vw;
 	transition: color .2s linear;
-	padding: 1.1vmin;
+	padding: 15px;
 	text-align: center;
 	display: block;
-	top: 10%;
-	
+	margin: auto;
+	margin-top: 20px;
 }

@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include("userCounter.php");
+
 $str_time = '2021-11-17 14:00:00';
 $start_time = strtotime($str_time);
 $time_now = time();

@@ -1,9 +1,14 @@
+/*jshint esversion: 7 */
 
 var pi = 3.141592;
 var deg = pi / 180;
 
 let count = 0;
 let unlock = true;
+
+const screenWidth = window.screen.width;
+const screenHeight = window.screen.height;
+
 
 
 
@@ -13,24 +18,39 @@ function player(x,y,z,rx,ry) {
 	this.z = z;
 	this.rx = rx;
 	this.ry = ry;
+	this.vx = 3;
+	this.vy = 5;
+	this.vz = 3;
 }
 
 
 var map = [
-		   [0,0,2000,0,180,0,4000,400, "url(Images/wall.jpg)"],
-		   [0,0,-2000,0,0,0,4000,400, "url(Images/wall.jpg)"],
-		   [2000,0,0,0,-90,0,4000,400, "url(Images/wall.jpg)"],
-		   [-2000,0,0,0,90,0,4000,400, "url(Images/wall.jpg)"],
+		   [0,-50,1000,0,180,0,2000,300, "url(Images/wall.jpg)"],
+		   [0,-50,-1000,0,0,0,2000,300, "url(Images/wall.jpg)"],
+		   [1000,-50,600,0,-90,0,850,300, "url(Images/wall.jpg)"],
+		   [1000,-50,-600,0,-90,0,850,300, "url(Images/wall.jpg)"],
+		   [-1000,-50,0,0,90,0,2000,300, "url(Images/wall.jpg)"],
 
-		   [0,0,100,0,180,0,200,400, "url(Images/wall.jpg)"],
-		   [0,0,-100,0,0,0,200,400, "url(Images/wall.jpg)"],
-		   [100,0,0,0,-90,0,200,400, "url(Images/wall.jpg)"],
-		   [-100,0,0,0,90,0,200,400, "url(Images/wall.jpg)"],
+		   [0,-50,100,0,180,0,200,300, "url(Images/wall.jpg)"],
+		   [0,-50,-100,0,0,0,200,300, "url(Images/wall.jpg)"],
+		   [100,-50,0,0,-90,0,200,300, "url(Images/wall.jpg)"],
+		   [-100,-50,0,0,90,0,200,300, "url(Images/wall.jpg)"],
 
 
-		   [0,100,0,90,0,0,4000,4000, "url(Images/floor.jpg)"],
+		   [1400,-50,175,0,180,0,800,300, "url(Images/wall.jpg)"],
+		   [1575,-50,-175,0,180,0,1150,300, "url(Images/wall.jpg)"],
+		   [1800,-50,400,0,90,0,450,300, "url(Images/wall.jpg)"],
+		   [2150,-50,225,0,90,0,800,300, "url(Images/wall.jpg)"],
+		   [1975,-50,625,0,180,0,350,300, "url(Images/wall.jpg)"],		   
 
-		   [0,-200,0,90,0,0,4000,4000, "url(Images/floor.jpg)"]
+
+		   [0,100,0,90,0,0,2000,2000, "url(Images/floor.jpg)"],
+		   [1400,100,0,90,0,0,800,350, "url(Images/floor.jpg)"],
+		   [1975,100,225,90,0,0,350,800, "url(Images/floor.jpg)"],
+
+		   [0,-200,0,90,0,0,2000,2000, "url(Images/floor.jpg)"],
+		   [1400,-200,0,90,0,0,800,350, "url(Images/floor.jpg)"],
+		   [1975,-200,225,90,0,0,350,800, "url(Images/floor.jpg)"]
 ];
 
 
@@ -43,6 +63,10 @@ var PressUp = 0;
 var MouseX = 0;
 var MouseY = 0;
 
+var dx = 0;
+var dz = 0;
+var dy = 0;
+
 // захват мыши
 
 var lock = false;
@@ -54,6 +78,22 @@ var onGround = true;
 var escWindow = document.getElementById("pawn");
 
 var container = document.getElementById("container");
+
+
+// const addit, yPoint;
+// if(screenHeight > 768){
+// 	const addit = 300 - ((screenHeight - 768) / 5);
+// 	const yPoint = addit - (screenHeight / 3);
+// 	var pawn = new player(-900, yPoint,-900,0,0);
+// }else{
+// 	const addit = 300;
+// 	const yPoint = addit - (screenHeight / 3);
+// 	var pawn = new player(-900, yPoint,-900,0,0);
+// }
+
+// const addit = 300 - ((2000 - 768) / 4);
+// const yPoint = addit - (2000 / 3);
+var pawn = new player(-900, 50,-900,0,0);
 
 // Обработчик изменения состояния захвата курсора
 
@@ -82,19 +122,19 @@ container.onclick = function(){
 
 document.addEventListener("keydown", (event) =>{
 	if (event.keyCode == 65){
-		PressLeft = 4;
+		PressLeft = 2;
 	}
 	if (event.keyCode == 87){
-		PressForward = 4;
+		PressForward = 2;
 	}
 	if (event.keyCode == 68){
-		PressRight = 4;
+		PressRight = 2;
 	}
 	if (event.keyCode == 83){
-		PressBack = 4;
+		PressBack = 2;
 	}
 	if (event.keyCode == 32 && onGround){
-		PressUp = 3;
+		PressUp = 4;
 	}
 });
 
@@ -114,7 +154,7 @@ document.addEventListener("keyup", (event) =>{
 		PressBack = 0;
 	}
 	if (event.keyCode == 32){
-		PressUp = 3;
+		PressUp = 4;
 	}
 });
 
@@ -127,14 +167,14 @@ document.addEventListener("mousemove", (event)=>{
 
 
 
-var pawn = new player(-900,0,-900,0,0);
-
-
-
 var world = document.getElementById("world");
 
 
 function update(){
+	if(!lock){
+		PressUp = 0;
+		pawn.y = 50;
+	}
 	if(PressUp != 0 && unlock){
 	count++;
 	}
@@ -143,9 +183,13 @@ function update(){
 	if(count > 15){
 		unlock = false;
 	}
-	dx =   (PressRight - PressLeft)*Math.cos(pawn.ry*deg) - (PressForward - PressBack)*Math.sin(pawn.ry*deg);
-	dz = - (PressForward - PressBack)*Math.cos(pawn.ry*deg) - (PressRight - PressLeft)*Math.sin(pawn.ry*deg);
-	dy = - PressUp;
+	if(lock){
+		dx =   ((PressRight - PressLeft)*Math.cos(pawn.ry*deg) - (PressForward - PressBack)*Math.sin(pawn.ry*deg))*pawn.vx;
+		dz = ( -(PressForward - PressBack)*Math.cos(pawn.ry*deg) - (PressRight - PressLeft)*Math.sin(pawn.ry*deg))*pawn.vz;
+		dy = - PressUp;
+	}
+	
+	
 	drx = MouseY / 5;
 	dry = - MouseX / 5;
 	
@@ -171,17 +215,22 @@ function update(){
 		pawn.y = pawn.y + dy;
 	}
 	
-	pawn.x = pawn.x + dx;
 	
-	pawn.z = pawn.z + dz;
 	//console.log(pawn.x + ":" + pawn.y + ":" + pawn.z);
 	
 	// Если курсор захвачен, разрешаем вращение
 	
 	if (lock){
+		pawn.x = pawn.x + dx;
+		pawn.z = pawn.z + dz;
 		pawn.rx = pawn.rx + drx;
 		pawn.ry = pawn.ry + dry;
-	};
+
+console.log("Player x = " + pawn.x);
+console.log("Player y = " + pawn.y);
+console.log("Player z = " + pawn.z);
+console.log("screenHeight = " + screenHeight);
+	}
 
 	// Изменяем координаты мира (для отображения)
 	
@@ -191,7 +240,7 @@ function update(){
 	"rotateY(" + (-pawn.ry) + "deg)" +
 	"translate3d(" + (-pawn.x) + "px," + (-pawn.y) + "px," + (-pawn.z) + "px)";
 	
-};
+}
 
 function CreateNewWorld(){
 	for (let i = 0; i < map.length; i++){
@@ -203,7 +252,7 @@ function CreateNewWorld(){
 		newElement.id = "square" + i;
 		newElement.style.width = map[i][6] + "px";
 		newElement.style.height = map[i][7] + "px";
-		newElement.style.background = map[i][8];
+		newElement.style.backgroundImage = map[i][8];
 		newElement.style.transform = "translate3d(" +
 		(600 - map[i][6]/2 + map[i][0]) + "px," +
 		(400 - map[i][7]/2 + map[i][1]) + "px," +
@@ -219,12 +268,17 @@ function CreateNewWorld(){
 }
 
 function collision(){
+	
+	onGround = false;
+	
 	for(let i = 0; i < map.length; i++){
 		
 		// рассчитываем координаты игрока в системе координат прямоугольника
-		
-		let x0 = (pawn.x - map[i][0]);
+
 		let y0 = (pawn.y - map[i][1]);
+		
+		let x0 = ((pawn.x + 50) - map[i][0]);
+		
 		let z0 = (pawn.z - map[i][2]);
 		
 		if ((x0**2 + y0**2 + z0**2 + dx**2 + dy**2 + dz**2) < (map[i][6]**2 + map[i][7]**2)){
@@ -235,16 +289,21 @@ function collision(){
 		
 			let point0 = coorTransform(x0,y0,z0,map[i][3],map[i][4],map[i][5]);
 			let point1 = coorTransform(x1,y1,z1,map[i][3],map[i][4],map[i][5]);
-			let point2 = new Array();
+			let normal = coorReTransform(0,0,1,map[i][3],map[i][4],map[i][5]);
 		
 			// Условие коллизии и действия при нем
 		
-			if (Math.abs(point1[0])<(map[i][6]+98)/2 && Math.abs(point1[1])<(map[i][7]+98)/2 && Math.abs(point1[2]) < 50){
+			if (Math.abs(point1[0])<(map[i][6]+90)/2 && Math.abs(point1[1])<(map[i][7]+90)/2 && Math.abs(point1[2]) < 50){
 				point1[2] = Math.sign(point0[2])*50;
-				point2 = coorReTransform(point1[0],point1[1],point1[2],map[i][3],map[i][4],map[i][5]);
+				let point2 = coorReTransform(point1[0],point1[1],point1[2],map[i][3],map[i][4],map[i][5]);
+				let point3 = coorReTransform(point1[0],point1[1],0,map[i][3],map[i][4],map[i][5]);
 				dx = point2[0] - x0;
 				dy = point2[1] - y0;
 				dz = point2[2] - z0;
+				if (Math.abs(normal[1]) > 0.8){
+					if (point3[1] > point2[1]) onGround = true;
+				}
+				else dy = y1 - y0;
 			}
 			
 		}
@@ -275,7 +334,7 @@ function coorReTransform(x3,y3,z3,rxc,ryc,rzc){
 	let y0 =  y1*Math.cos(rxc*deg) - z1*Math.sin(rxc*deg);
 	let z0 =  y1*Math.sin(rxc*deg) + z1*Math.cos(rxc*deg);
 	return [x0,y0,z0];
-}
+};
 
 
 CreateNewWorld();
